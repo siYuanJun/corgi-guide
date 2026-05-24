@@ -247,6 +247,12 @@
 (function(){
 var L=localStorage.getItem('lang')||'en';
 var T={
+en:{
+title:"How to Safely Dock a Corgi Puppy's Tail | Complete Guide & Aftercare",
+desc:"Expert guide on the best time to dock a Corgi puppy's tail, three mainstream docking methods, step-by-step tutorial, and essential aftercare tips.",
+ogtitle:"How to Safely Dock a Corgi Puppy's Tail | Complete Guide & Aftercare",
+ogdesc:"Expert guide on the best time to dock a Corgi puppy's tail, three mainstream docking methods, step-by-step tutorial, and essential aftercare tips.",
+},
 zh:{
 title:"如何给柯基幼犬安全断尾 | 完整指南与术后护理",
 desc:"专业详解柯基幼犬断尾的最佳时间、三种主流断尾方法、分步操作教程及术后护理要点。安全、科学地为您的柯基宝宝完成断尾，附常见问题解答。",
@@ -342,7 +348,7 @@ cop:'<strong>柯基断尾</strong>是一个需要知识、经验和责任心共�
 disc:"本网站内容仅供参考，不构成兽医建议。在采取任何措施前，请务必咨询专业兽医。"
 }};
 var E={};
-function B(){document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(!E[k])E[k]=el.innerHTML;el.innerHTML=T.zh[k]||E[k];});}
+function B(l){document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(!E[k])E[k]=el.innerHTML;el.innerHTML=(T[l]&&T[l][k])||E[k];});}
 function R(){document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');el.innerHTML=E[k]||el.innerHTML;});}
 function U(l){
 L=l;localStorage.setItem('lang',l);
@@ -353,7 +359,7 @@ if(t&&t.title)document.title=t.title;
 if(t&&t.desc)document.querySelector('meta[name="description"]').setAttribute('content',t.desc);
 if(t&&t.ogtitle)document.querySelector('meta[property="og:title"]').setAttribute('content',t.ogtitle);
 if(t&&t.ogdesc)document.querySelector('meta[property="og:description"]').setAttribute('content',t.ogdesc);
-l==='zh'?B():R();
+T[l]?B(l):R();
 updateSchemas(l);
 }
 function updateSchemas(l){
